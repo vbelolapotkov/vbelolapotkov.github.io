@@ -62,6 +62,7 @@ function submitContact(e) {
   e.preventDefault();
   var form = e.currentTarget;
   try {
+    clearErrorState(form);
     var contact = getFormData(form);
     checkContact(contact);
     sendContact(contact, form);
@@ -105,7 +106,6 @@ function handleSubmitContactSuccess(form) {
 }
 
 function handleSubmitContactError(error, form) {
-  console.log(error);
   clearErrorState(form);
   if (error.message === 'EMPTY_CONTACT_FIELD') {
     notifyUserOnEmptyFields(form);

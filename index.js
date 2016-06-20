@@ -65,10 +65,8 @@ function submitContact(e) {
     var contact = getFormData(form);
     checkContact(contact);
     sendContact(contact, form);
-    // clearForm(form);
   } catch (error) {
     handleSubmitContactError(error, form);
-    // e.preventDefault();
   }
 }
 
@@ -92,28 +90,22 @@ function sendContact(contact, form) {
     url: 'https://formspree.io/belolapotkov.v@gmail.com',
     data: contact,
     dataType: 'json',
-    success: function(data) {
-      console.log('Success');
-      clearForm(form);
+    success: function() {
+      handleSubmitContactSuccess(form);
     },
     error: function(error) {
-      console.log('AJAX Error');
-      console.log(error);
-      clearForm(form);
+      handleSubmitContactError(error, form);
     }
   });
 }
 
-function clearForm(form) {
-  clearValues(form);
-  clearErrorState(form);
-}
-
-function clearValues(form) {
-  $(form).find('input').val('');
+function handleSubmitContactSuccess(form) {
+  notifyUserOnSuccess(form);
+  setTimeout(clearForm.bind(this, form), 3000);
 }
 
 function handleSubmitContactError(error, form) {
+  console.log(error);
   clearErrorState(form);
   if (error.message === 'EMPTY_CONTACT_FIELD') {
     notifyUserOnEmptyFields(form);
@@ -122,12 +114,14 @@ function handleSubmitContactError(error, form) {
   }
 }
 
-function clearErrorState(form) {
-  $(form).children('.form-group').removeClass('has-error');
-  $(form).find('.error-msg').detach();
+function notifyUserOnSuccess(form) {
+  var button = $(form).find('button[type="submit"]');
+  button.removeClass('btn-primary').addClass('btn-success').html('<i class="fa fa-check"></i>');
+  button.addClass('animated pulse');
 }
 
 function notifyUserOnEmptyFields(form) {
+  $(form).find('button[type="submit"]').addClass('animated shake');
   $(form).children('.form-group').addClass('has-error');
   var errorMsg = composeErrorMsg('Please fill the form to let me know how to reach you.');
   $(form).prepend(errorMsg);
@@ -143,4 +137,24 @@ function composeErrorMsg(msg) {
 function notifyUserOnUnknownError(form) {
   var errorMsg = composeErrorMsg('Ooops, something unexpected happend. Anyway you can contact me using links above this message.');
   $(form).prepend(errorMsg);
+}
+
+function clearForm(form) {
+  clearValues(form);
+  clearErrorState(form);
+  clearSuccessState(form);
+}
+
+function clearValues(form) {
+  $(form).find('input').val('');
+}
+
+function clearErrorState(form) {
+  $(form).children('.form-group').removeClass('has-error');
+  $(form).find('.error-msg').detach();
+  $(form).find('button[type="submit"]').removeClass('animated shake ');
+}
+
+function clearSuccessState(form) {
+  $(form).find('button[type="submit"]').html('Send contact').removeClass('animated pulse btn-success').addClass('btn-primary');
 }

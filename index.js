@@ -59,14 +59,16 @@ function scrollTo(selector) {
 }
 
 function submitContact(e) {
+  e.preventDefault();
   var form = e.currentTarget;
   try {
     var contact = getFormData(form);
     checkContact(contact);
-    clearForm(form);
+    sendContact(contact, form);
+    // clearForm(form);
   } catch (error) {
     handleSubmitContactError(error, form);
-    e.preventDefault();
+    // e.preventDefault();
   }
 }
 
@@ -80,9 +82,26 @@ function getFormData(form) {
 }
 
 function checkContact(data) {
-  if (!data[ "Name" ] || !data[ "Contact" ]) {
+  if (!data.Name || !data.Contact) {
     throw new Error('EMPTY_CONTACT_FIELD');
   }
+}
+
+function sendContact(contact, form) {
+  $.post({
+    url: 'https://formspree.io/belolapotkov.v@gmail.com',
+    data: contact,
+    dataType: 'json',
+    success: function(data) {
+      console.log('Success');
+      clearForm(form);
+    },
+    error: function(error) {
+      console.log('AJAX Error');
+      console.log(error);
+      clearForm(form);
+    }
+  });
 }
 
 function clearForm(form) {

@@ -1,61 +1,16 @@
-var SCROLL_OFFSET = 30;
+// add animateCss method to jQuery
 
-$(document).ready(function() {
-  setupScrollSpy();
-  $(window).scroll(handleBodyScroll);
-  $('.local-nav-link').on('click', handleLocalNavLinkClick);
-  $('#contactForm').submit(submitContact);
+$.fn.extend({
+    animateCss: function (animationName) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+        });
+    }
 });
 
-function setupScrollSpy() {
-  $('body').scrollspy({
-    target: '#navbar-links',
-    offset: SCROLL_OFFSET*2
-  });
-}
-
-function handleBodyScroll(event) {
-  var scrollPosition = $(event.target).scrollTop();
-  if (navbarShouldBeVisible(scrollPosition)) {
-    showNavbar();
-  } else {
-    hideNavbar();
-  }
-}
-
-function navbarShouldBeVisible(scrollPosition) {
-  var threshold = getScrollThreshold();
-  return scrollPosition > threshold;
-}
-
-function getScrollThreshold() {
-  var element = $('#nav-options-container');
-  var elementOffset = element.offset();
-  var elementHeight = element.height();
-  var offset = SCROLL_OFFSET + 1; // +1 to show nav when scrolling to first section
-  return elementOffset.top + elementHeight - offset;
-}
-
-function showNavbar() {
-  $('header').removeClass("hidden");
-}
-
-function hideNavbar() {
-  $('header').addClass("hidden");
-}
-
-function handleLocalNavLinkClick(event) {
-  event.preventDefault();
-  var href = ($(event.currentTarget).attr('href'));
-  scrollTo(href);
-}
-
-function scrollTo(selector) {
-  var element = $(selector);
-  var elementTop = element ? element.offset().top : 0;
-  var offset = SCROLL_OFFSET;
-  var scrollTop = elementTop - offset;
-  $('body').animate({"scrollTop": scrollTop}, 'slow');
+export default function() {
+  $('#contactForm').submit(submitContact);
 }
 
 function submitContact(e) {
@@ -102,7 +57,7 @@ function sendContact(contact, form) {
 
 function handleSubmitContactSuccess(form) {
   notifyUserOnSuccess(form);
-  setTimeout(clearForm.bind(this, form), 3000);
+  setTimeout(clearForm.bind(this, form), 4000);
 }
 
 function handleSubmitContactError(error, form) {
@@ -117,11 +72,19 @@ function handleSubmitContactError(error, form) {
 function notifyUserOnSuccess(form) {
   var button = $(form).find('button[type="submit"]');
   button.removeClass('btn-primary').addClass('btn-success').html('<i class="fa fa-check"></i>');
-  button.addClass('animated pulse');
+  button.animateCss('pulse');
+  const successMsg = composeSuccessMsg('Thank you for providing contact. I\'ll reach you as soon as possible.');
+  $(form).prepend(successMsg);
+}
+
+function composeSuccessMsg(msg) {
+  var msgContainer = document.createElement('div');
+  msgContainer.className = 'row alert alert-success success-msg';
+  msgContainer.innerHTML = msg;
+  return msgContainer;
 }
 
 function notifyUserOnEmptyFields(form) {
-  $(form).find('button[type="submit"]').addClass('animated shake');
   $(form).children('.form-group').addClass('has-error');
   var errorMsg = composeErrorMsg('Please fill the form to let me know how to reach you.');
   $(form).prepend(errorMsg);
@@ -152,9 +115,9 @@ function clearValues(form) {
 function clearErrorState(form) {
   $(form).children('.form-group').removeClass('has-error');
   $(form).find('.error-msg').detach();
-  $(form).find('button[type="submit"]').removeClass('animated shake ');
 }
 
 function clearSuccessState(form) {
-  $(form).find('button[type="submit"]').html('Send contact').removeClass('animated pulse btn-success').addClass('btn-primary');
+  $(form).find('button[type="submit"]').html('Send contact').removeClass('btn-success').addClass('btn-primary');
+  $(form).find('.success-msg').detach();
 }

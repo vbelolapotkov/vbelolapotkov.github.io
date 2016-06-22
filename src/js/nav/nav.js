@@ -1,3 +1,5 @@
+import collapse from 'bootstrap/js/collapse';
+
 export default function(scrollOffset = 30) {
   $('.local-nav-link').on('click', event => {
     event.preventDefault();

@@ -1,12 +1,14 @@
-const SCROLL_OFFSET = 30;
+import scrollSpy from 'bootstrap/js/scrollspy';
 
-export default function() {
-  setupScrollSpy();
+let SCROLL_OFFSET;
+
+export default function(scrollOffset = 30) {
+  SCROLL_OFFSET = scrollOffset;
   $(window).scroll(handleBodyScroll);
-  $('.local-nav-link').on('click', handleLocalNavLinkClick);
+  setupBootstrapScrollSpy(scrollOffset);
 }
 
-function setupScrollSpy() {
+function setupBootstrapScrollSpy() {
   $('body').scrollspy({
     target: '#navbar-links',
     offset: SCROLL_OFFSET*2
@@ -41,18 +43,4 @@ function showNavbar() {
 
 function hideNavbar() {
   $('header').addClass("hidden");
-}
-
-function handleLocalNavLinkClick(event) {
-  event.preventDefault();
-  var href = ($(event.currentTarget).attr('href'));
-  scrollTo(href);
-}
-
-function scrollTo(selector) {
-  var element = $(selector);
-  var elementTop = element ? element.offset().top : 0;
-  var offset = SCROLL_OFFSET;
-  var scrollTop = elementTop - offset;
-  $('body').animate({"scrollTop": scrollTop}, 'slow');
 }

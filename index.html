@@ -1,242 +1,258 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Vasily Belolapotkov</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/assets/styles/animate.min.css">
-  <link rel="stylesheet" href="/assets/styles/style.css">
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/assets/js/index.js" type="text/javascript" charset="utf-8"></script>
 
-  <script src="http://localhost:8080/webpack-dev-server.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" dochead="1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vasily Belolapotkov</title>
+
+    <!-- VENDOR STYLES -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/vendor/animate.min.css">
+    <!-- MY STYLES -->
+    <link rel="stylesheet" href="/assets/styles.css">
 </head>
+
 <body>
-  <header class="hidden">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle menu-button collapsed" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <i class="fa fa-code" aria-hidden="true"></i>
-          </button>
-        <p class="navbar-text">vasily_belolapotkov.html</p>
-      </div>
-      <div class="collapse navbar-collapse" id="navbar-links">
-        <ul class="nav navbar-nav navbar-right text-center">
-          <li class="active"><a href="#intro" class="local-nav-link">About</a></li>
-          <li><a href="#portfolio" class="local-nav-link">Portfolio</a></li>
-          <li><a href="#technology" class="local-nav-link">Technology</a></li>
-          <li><a href="#contact" class="local-nav-link">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-<main>
-  <section id="intro">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-7">
-          <p class="lead intro-message">Hi, my name is Vasily and I'm a web developer. I use code to express ideas, solve problems and make this world a better place to live.</p>
-          <p class="lead">Select option or just scroll the page to know me better.</p>
-        </div>
-        <div class="col-sm-5">
-          <div id="nav-options-container" class="panel panel-default code-editor">
-            <div class="panel-body">
-              <div class="code-block">
-                <div class="code-line">
-                  if (lookingForDeveloper) {
+    <header class="hidden">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle menu-button collapsed" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-code" aria-hidden="true"></i>
+                    </button>
+                    <p class="navbar-text">vasily_belolapotkov.html</p>
                 </div>
-                <div class="code-line indent1">
-                  <a href="#contact" class="function local-nav-link">contactMe();</a>
+                <div class="collapse navbar-collapse" id="navbar-links">
+                    <ul class="nav navbar-nav navbar-right text-center">
+                        <li class="active"><a href="#intro" class="local-nav-link">About</a></li>
+                        <li><a href="#portfolio" class="local-nav-link">Portfolio</a></li>
+                        <li><a href="#technology" class="local-nav-link">Technology</a></li>
+                        <li><a href="#contact" class="local-nav-link">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="code-line">
-                  } if (wantToLookAtMyProjects) {
-                </div>
-                <div class="code-line indent1">
-                  <a href="#portfolio" class="function local-nav-link">viewPortfolio();</a>
-                </div>
-                <div class="code-line">
-                  } if (wantToKnowHowThingsDone) {
-                </div>
-                <div class="code-line indent1">
-                  <a href="#technology" class="function local-nav-link">checkTechnologySection();</a>
-                </div>
-                <div class="code-line">
-                  }
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="portfolio" class="container">
-    <h2>Portfolio</h2>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="https://res.cloudinary.com/vbelolapotkov/image/upload/v1465368433/portfolio/placeholder.png" alt="Project 1" />
-          <div class="caption">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem maiores, voluptatum enim ab, eos alias a suscipit rerum ullam optio cumque officia quos blanditiis minus. Maiores autem, alias libero iste.</p>
-            <ul class="list-inline">
-              <li class="label label-default">Html</li>
-              <li class="label label-default">Css</li>
-              <li class="label label-default">Js</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="https://res.cloudinary.com/vbelolapotkov/image/upload/v1465368433/portfolio/placeholder.png" alt="Project 1" />
-          <div class="caption">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem maiores, voluptatum enim ab, eos alias a suscipit rerum ullam optio cumque officia quos blanditiis minus. Maiores autem, alias libero iste.</p>
-            <ul class="list-inline">
-              <li class="label label-default">Html</li>
-              <li class="label label-default">Css</li>
-              <li class="label label-default">Js</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="https://res.cloudinary.com/vbelolapotkov/image/upload/v1465368433/portfolio/placeholder.png" alt="Project 1" />
-          <div class="caption">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem maiores, voluptatum enim ab, eos alias a suscipit rerum ullam optio cumque officia quos blanditiis minus. Maiores autem, alias libero iste.</p>
-            <ul class="list-inline">
-              <li class="label label-default">Html</li>
-              <li class="label label-default">Css</li>
-              <li class="label label-default">Js</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="technology" class="container">
-    <h2>Technology</h2>
-    <div class="row">
-      <div class="col-md-7">
-        <p class="lead">Today developers have a lot of technologies, frameworks, tools and methodologies to choose from. Here is my choice of principles to follow and tools to create apps.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-7">
-        <h3>Principles</h3>
-        <h4>Version control</h4>
-        <p>Software product is alive and always has moving parts like requirements, features, bugs, etc. Version control system is a key to success in keeping source code under control.</p>
-        <p>I use <a href="https://github.com">GitHub</a> for the public projects and <a href="https://bitbucket.org/">Bitbucket</a> for the private ones.</p>
-        <h4>Clean code</h4>
-        <p>Source code indeed has a lot in common with an article or a book. Both are expressing ideas with a language. Like an editor who is working with a text I'm refactoring code to make it clean, organized and easy to read. Clean code saves time and
-          effort on app development, maintanance and improvement.</p>
-        <h4>Testing</h4>
-        <p>I belong to the group of developers who believe that an app must have tests. Testing ensures the key features are working as expected and new features are not breaking anything the app.</p>
-        <p>That is why I'm following a <a href="https://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a> methodology.</p>
-      </div>
-      <div class="col-md-4 col-md-offset-1">
-        <h3>Technology stack</h3>
-        <div class="row">
-          <div class="col-sm-4 col-md-12">
-            <h4>Core</h4>
-            <ul class="list-inline">
-              <li><a href="https://en.wikipedia.org/wiki/HTML" target="_blank">
+        </nav>
+    </header>
+    <main>
+        <section id="intro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p class="lead intro-message">Hi, my name is Vasily and I'm a full stack developer. I use code to express ideas, solve problems and make this world a better place to live.</p>
+                        <p class="lead">Select option or just scroll the page to know me better.</p>
+                    </div>
+                    <div class="col-sm-5">
+                        <div id="nav-options-container" class="panel panel-default code-editor">
+                            <div class="panel-body">
+                                <div class="code-block">
+                                    <div class="code-line">
+                                        if (lookingForDeveloper) {
+                                    </div>
+                                    <div class="code-line indent1">
+                                        <a href="#contact" class="function local-nav-link">contactMe();</a>
+                                    </div>
+                                    <div class="code-line">
+                                        } if (wantToLookAtMyProjects) {
+                                    </div>
+                                    <div class="code-line indent1">
+                                        <a href="#portfolio" class="function local-nav-link">viewPortfolio();</a>
+                                    </div>
+                                    <div class="code-line">
+                                        } if (wantToKnowHowThingsDone) {
+                                    </div>
+                                    <div class="code-line indent1">
+                                        <a href="#technology" class="function local-nav-link">checkTechnologySection();</a>
+                                    </div>
+                                    <div class="code-line">
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio" class="container">
+            <h2>Portfolio</h2>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="/assets/img/projects/vaas_console/conferences.jpg" alt="Vaas Console app - Conferences page" />
+                        <div class="caption">
+                            <p><a href="https://console.vaas.croc.ru" target="_blank">VaaS Console</a> is a management app for the enterprise customers of the videoconferencing service. The app allows users to manage profiles, virtual conference rooms and view usage stats. Role based access provides additional capabilites for customer admins.</p>
+                            <div class="row">
+                              <div class="col-xs-12 col-sm-8">
+                                <h3>Technology stack</h3>
+                                <ul class="list-inline">
+                                    <li class="label label-default">Meteor</li>
+                                    <li class="label label-default">React</li>
+                                    <li class="label label-default">Material-UI</li>
+                                </ul>
+                              </div>
+                              <div class="col-xs-12 col-sm-4">
+                                <h3>Source code</h3>
+                                <p>
+                                  <span class="label label-danger">Private</span>
+                                </p>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="https://res.cloudinary.com/vbelolapotkov/image/upload/v1465368433/portfolio/placeholder.png" alt="Project 1" />
+                        <div class="caption">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem maiores, voluptatum enim ab, eos alias a suscipit rerum ullam optio cumque officia quos blanditiis minus. Maiores autem, alias libero iste.</p>
+                            <ul class="list-inline">
+                                <li class="label label-default">Html</li>
+                                <li class="label label-default">Css</li>
+                                <li class="label label-default">Js</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="https://res.cloudinary.com/vbelolapotkov/image/upload/v1465368433/portfolio/placeholder.png" alt="Project 1" />
+                        <div class="caption">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem maiores, voluptatum enim ab, eos alias a suscipit rerum ullam optio cumque officia quos blanditiis minus. Maiores autem, alias libero iste.</p>
+                            <ul class="list-inline">
+                                <li class="label label-default">Html</li>
+                                <li class="label label-default">Css</li>
+                                <li class="label label-default">Js</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="technology" class="container">
+            <h2>Technology</h2>
+            <div class="row">
+                <div class="col-md-7">
+                    <p class="lead">Today developers have a lot of technologies, frameworks, tools and methodologies to choose from. Here is my choice of principles to follow and tools to create apps.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <h3>Principles</h3>
+                    <h4>Version control</h4>
+                    <p>Software product is alive and always has moving parts like requirements, features, bugs, etc. Version control system is a key to success in keeping source code under control.</p>
+                    <p>I use <a href="https://github.com">GitHub</a> for the public projects and <a href="https://bitbucket.org/">Bitbucket</a> for the private ones.</p>
+                    <h4>Clean code</h4>
+                    <p>Source code indeed has a lot in common with an article or a book. Both are expressing ideas with a language. Like an editor who is working with a text I'm refactoring code to make it clean, organized and easy to read. Clean code saves time and effort on app development, maintanance and improvement.</p>
+                    <h4>Testing</h4>
+                    <p>I belong to the group of developers who believe that an app must have tests. Testing ensures the key features are working as expected and new features are not breaking anything the app.</p>
+                    <p>That is why I'm following a <a href="https://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a> methodology.</p>
+                </div>
+                <div class="col-md-4 col-md-offset-1">
+                    <h3>Technology stack</h3>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-12">
+                            <h4>Core</h4>
+                            <ul class="list-inline">
+                                <li><a href="https://en.wikipedia.org/wiki/HTML" target="_blank">
                 HTML
               </a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">
+                                <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">
                 CSS
                </a></li>
-              <li><a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">
+                                <li><a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">
                 JavaScript
                </a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-md-12">
-            <h4>FrontEnd</h4>
-            <ul class="list-inline">
-              <li><a href="http://getbootstrap.com" target="_blank">
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 col-md-12">
+                            <h4>FrontEnd</h4>
+                            <ul class="list-inline">
+                                <li><a href="http://getbootstrap.com" target="_blank">
                 Bootstrap
                </a></li>
-              <li><a href="https://jquery.com" target="_blank">
+                                <li><a href="https://jquery.com" target="_blank">
                 jQuery
                </a></li>
-              <li><a href="https://facebook.github.io/react/" target="_blank">
+                                <li><a href="https://facebook.github.io/react/" target="_blank">
                 React
               </a></li>
-              <li><a href="http://www.material-ui.com/#/" target="_blank">
+                                <li><a href="http://www.material-ui.com/#/" target="_blank">
                 Material-UI
               </a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-md-12">
-            <h4>BackEnd</h4>
-            <ul class="list-inline">
-              <li><a href="https://nodejs.org" target="_blank">
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 col-md-12">
+                            <h4>BackEnd</h4>
+                            <ul class="list-inline">
+                                <li><a href="https://nodejs.org" target="_blank">
                 Node
               </a></li>
-              <li><a href="https://www.meteor.com" target="_blank">
+                                <li><a href="https://www.meteor.com" target="_blank">
                 Meteor
               </a></li>
-              <li><a href="https://www.mongodb.com" target="_blank">
+                                <li><a href="https://www.mongodb.com" target="_blank">
                 MongoDB
               </a></li>
-              <li><a href="http://keystonejs.com" target="_blank">
+                                <li><a href="http://keystonejs.com" target="_blank">
                 KeystoneJS
                </a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="contact" class="container">
-    <h2 class="text-center">Contact me</h2>
-    <div class="row">
-      <div class="col-sm-6 col-sm-push-3 col-lg-4 col-lg-push-4 contacts-container">
-        <div class="row">
-          <div class="col-xs-7">
-            <a href="mailto:belolaptokov.v@gmail.com" class="email">belolapotkov.v@gmail.com</a>
-          </div>
-          <div class="col-xs-5 text-right">
-            <ul class="list-inline form-control-static socials">
-              <li>
-                <a href="https://www.facebook.com/VBelolapotkov" target="_blank"><i class="fa fa-facebook-official"></i></a>
-              </li>
-              <li>
-                <a href="https://vk.com/id642362" target="_blank"><i class="fa fa-vk"></i></a>
-              </li>
-              <li>
-                <a href="https://ru.linkedin.com/in/vasily-belolapotkov" target="_blank"><i class="fa fa-linkedin"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <hr class="or-delimeter" />
-        <p class="lead">Tell me how to reach you</p>
-        <form id="contactForm">
-          <div class="form-group">
-            <label for="inputName" class="control-label">Name</label>
-            <input type="text" name="Name" class="form-control" id="inputName" placeholder="Name" />
-          </div>
-          <div class="form-group">
-            <label for="inputContact" class="control-label">Contact string</label>
-            <input type="text" class="form-control" id="inputContact" name="Contact" placeholder="Email / Phone / Skype / Whatever you use" />
-            <p class="help-block">Example: '<span class="example">skype me to vbelolapotkov</span>'</p>
-          </div>
-          <button type="submit" class="btn btn-block btn-primary">Send contact</button>
-        </form>
-      </div>
-    </div>
-  </section>
-</main>
-<footer>
-  <p>Designed and implemented by Vasily Belolapotkov</p>
-</footer>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="container">
+            <h2 class="text-center">Contact me</h2>
+            <div class="row">
+                <div class="col-sm-6 col-sm-push-3 col-lg-4 col-lg-push-4 contacts-container">
+                    <div class="row">
+                        <div class="col-xs-7">
+                            <a href="mailto:belolaptokov.v@gmail.com" class="email">belolapotkov.v@gmail.com</a>
+                        </div>
+                        <div class="col-xs-5 text-right">
+                            <ul class="list-inline form-control-static socials">
+                                <li>
+                                    <a href="https://www.facebook.com/VBelolapotkov" target="_blank"><i class="fa fa-facebook-official"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://vk.com/id642362" target="_blank"><i class="fa fa-vk"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://ru.linkedin.com/in/vasily-belolapotkov" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr class="or-delimeter" />
+                    <p class="lead">Tell me how to reach you</p>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="inputName" class="control-label">Name</label>
+                            <input type="text" name="Name" class="form-control" id="inputName" placeholder="Name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputContact" class="control-label">Contact string</label>
+                            <input type="text" class="form-control" id="inputContact" name="Contact" placeholder="Email / Phone / Skype / Whatever you use" />
+                            <p class="help-block">Example: '<span class="example">skype me to vbelolapotkov</span>'</p>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary">Send contact</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Designed and implemented by Vasily Belolapotkov</p>
+    </footer>
+
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="/assets/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
+
 </html>

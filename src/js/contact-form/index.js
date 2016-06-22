@@ -1,3 +1,14 @@
+// add animateCss method to jQuery
+
+$.fn.extend({
+    animateCss: function (animationName) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+        });
+    }
+});
+
 export default function() {
   $('#contactForm').submit(submitContact);
 }
@@ -61,11 +72,19 @@ function handleSubmitContactError(error, form) {
 function notifyUserOnSuccess(form) {
   var button = $(form).find('button[type="submit"]');
   button.removeClass('btn-primary').addClass('btn-success').html('<i class="fa fa-check"></i>');
-  button.addClass('animated pulse');
+  button.animateCss('pulse');
+  const successMsg = composeSuccessMsg('Thank you for providing contact. I\'ll reach you as soon as possible.');
+  $(form).prepend(successMsg);
+}
+
+function composeSuccessMsg(msg) {
+  var msgContainer = document.createElement('div');
+  msgContainer.className = 'row alert alert-success success-msg';
+  msgContainer.innerHTML = msg;
+  return msgContainer;
 }
 
 function notifyUserOnEmptyFields(form) {
-  $(form).find('button[type="submit"]').addClass('animated shake');
   $(form).children('.form-group').addClass('has-error');
   var errorMsg = composeErrorMsg('Please fill the form to let me know how to reach you.');
   $(form).prepend(errorMsg);
@@ -96,9 +115,9 @@ function clearValues(form) {
 function clearErrorState(form) {
   $(form).children('.form-group').removeClass('has-error');
   $(form).find('.error-msg').detach();
-  $(form).find('button[type="submit"]').removeClass('animated shake ');
 }
 
 function clearSuccessState(form) {
-  $(form).find('button[type="submit"]').html('Send contact').removeClass('animated pulse btn-success').addClass('btn-primary');
+  $(form).find('button[type="submit"]').html('Send contact').removeClass('btn-success').addClass('btn-primary');
+  $(form).find('.success-msg').detach();
 }

@@ -1,16 +1,20 @@
-const webpack = require('webpack');
-
 const NODE_ENV = process.env.NODE_ENV || 'development';
+const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    main: './src/js',
+    styles: './src/styles/index.css'
+  },
   output: {
-    path: __dirname + '/assets/js',
-    publicPath: '/assets/js',
-    filename: './index.js'
+    path: __dirname + '/assets',
+    publicPath: '/assets/',
+    filename: '[name].js'
   },
 
-  watch: NODE_ENV === 'development',
+  // watch: NODE_ENV === 'development',
   devtool: NODE_ENV === 'development' ? 'cheap-inline-module-source-map' : null,
 
   module: {
@@ -22,10 +26,30 @@ module.exports = {
         presets: ['es2015'],
         plugins: ['transform-runtime']
       }
+    }, {
+      test: /\.js$/,
+      include: /bootstrap\/js/,
+      loader: 'imports',
+      query: {
+        jQuery: 'jquery'
+      }
+    }, {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract('css!postcss')
     }]
   },
 
-  plugins: [],
+  postcss: function() {
+    return [autoprefixer];
+  },
+
+  plugins: [
+    new webpack.NoErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      $: 'jquery'
+    }),
+    new ExtractTextPlugin('[name].css')
+  ],
 
   resolve: {
     modulesDirectories: ['node_modules'],
@@ -36,7 +60,9 @@ module.exports = {
     modulesDirectories: ['node_modules'],
     moduleTemplates: ['*-loader', '*'],
     extensions: ['', '.js']
-  }
+  },
+
+
 };
 
 if (NODE_ENV == 'production') {
@@ -45,7 +71,7 @@ if (NODE_ENV == 'production') {
         compress: {
             warnings: false,
             drop_console: true,
-            unsage: true
+            unsafe: true
         },
         output: {
             comments: false,

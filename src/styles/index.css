@@ -140,6 +140,13 @@ h4 {
   margin-bottom: -20px;
 }
 
+.thumbnail .caption h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 14px;
+
+}
+
 #contact {
   margin-bottom: 50px;
 }
